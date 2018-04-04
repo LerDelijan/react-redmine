@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { load } from "../actions/issue_actions";
 import { bindActionCreators } from "redux";
+import { Link } from 'react-router-dom';
+
 
 class Desc extends Component {
 
@@ -11,12 +13,31 @@ class Desc extends Component {
 
   render() {
     let result = this.props.issues;
+
+    if (result === undefined) {
+      return (
+        <div className="row pt-3">
+          <Link to="/" className="col-sm">
+            <div className="btn btn-outline-secondary">
+              Back
+            </div>
+          </Link>
+        </div>)
+    }
+    
     let startDate = Date.parse(result.created_on);
     let updateDate = Date.parse(result.updated_on)
-    let startDays = Math.round((Date.now() - startDate)/(1000*60*60*24));
-    let updateDays = Math.round((Date.now() - updateDate)/(1000*60*60*24))
+    let startDays = Math.round((Date.now() - startDate) / (1000 * 60 * 60 * 24));
+    let updateDays = Math.round((Date.now() - updateDate) / (1000 * 60 * 60 * 24))
     return (
       <div>
+        <div className="row pt-3">
+          <Link to="/" className="col-sm">
+            <div className="btn btn-outline-secondary">
+              Back
+            </div>
+          </Link>
+        </div>
         <div className="row border-bottom pt-3">
           <div className="h4 font-weight-bold col-sm">{result.tracker.name}{' #'}{result.id}</div>
         </div>
