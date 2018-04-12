@@ -27,14 +27,16 @@ class Input extends Component {
 
   changeText = (name, e) => {
     this.setState(
-      { parameters: { [name]: e.target.value } },
+      { parameters: { ...this.state.parameters, [name]: e.target.value } },
       () => this.props.dataSearch(this.filter())
     );
   };
 
   clear = () => {
     this.setState(
-      { parameters: {} },
+      {
+        parameters: {}
+      },
       () => this.props.dataSearch(this.filter())
     );
   }
@@ -42,68 +44,80 @@ class Input extends Component {
   render() {
     return (
       <div>
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">Tracker</span>
+        <form onSubmit={this.clear}>
+          <div className="form-row py-2">
+
+            <div className="form-group col-md-3">
+              <label>Tracker</label>
+              <select
+                className="custom-select form-control"
+                value={this.state.parameters.tracker_id}
+                onChange={(e) => { this.changeText('tracker_id', e) }}>
+                <option value=""></option>
+                <option value="1">Bug</option>
+                <option value="2">Feature</option>
+                <option value="3">Support</option>
+              </select>
+            </div>
+
+            <div className="form-group col-md-3">
+              <label>Status</label>
+              <select
+                className="custom-select form-control"
+                value={this.state.parameters.status_id}
+                onChange={(e) => { this.changeText('status_id', e) }}>
+                <option value="" ></option>
+                <option value="1">New</option>
+                <option value="2">In Progress</option>
+                <option value="3">Resolved</option>
+                <option value="4">Feedback</option>
+                <option value="5">Closed</option>
+                <option value="6">Rejected</option>
+              </select>
+            </div>
+
+            <div className="form-group col-md-3">
+              <label>Issue Id</label>
+              <input
+                className="form-control"
+                placeholder="Search"
+                type="text"
+                value={this.state.parameters.issue_id}
+                onChange={(e) => { this.changeText('issue_id', e) }} />
+            </div>
+
+            <div className="form-group col-md-3">
+              <label>Priority</label>
+              <select
+                className="custom-select form-control"
+                value={this.state.parameters.priority_id}
+                onChange={(e) => { this.changeText('priority_id', e) }}>
+                <option value=""></option>
+                <option value="1">Low</option>
+                <option value="2">Normal</option>
+                <option value="3">High</option>
+                <option value="4">Urgent</option>
+                <option value="5">Immediate</option>
+              </select>
+            </div>
+
+            <div className="btn-group col">
+              {/* <button className="btn btn-outline-dark" type="button" onClick={this.searchByFilter}>Filter</button> */}
+              <input className="btn btn-outline-dark" type="submit" value="Clear" />
+            </div>
+
           </div>
-          <select
-            className="form-control"
-            value={this.state.parameters.tracker_id}
-            onChange={(e) => { this.changeText('tracker_id', e) }}>
-            <option value="1">Bug</option>
-            <option value="2">Feature</option>
-            <option value="3">Support</option>
-          </select>
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">Status</span>
-          </div>
-          <select
-            className="form-control"
-            value={this.state.parameters.status_id}
-            onChange={(e) => { this.changeText('status_id', e) }}>
-            <option value="1">New</option>
-            <option value="2">In Progress</option>
-            <option value="3">Resolved</option>
-            <option value="4">Feedback</option>
-            <option value="5">Closed</option>
-            <option value="6">Rejected</option>
-          </select>
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">Issue Id</span>
-          </div>
-          <input
-            className="form-control"
-            placeholder="Search"
-            type="text"
-            value={this.state.parameters.issue_id}
-            onChange={(e) => { this.changeText('issue_id', e) }} />
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">Priority</span>
-          </div>
-          <select
-            className="form-control"
-            value={this.state.parameters.priority_id}
-            onChange={(e) => { this.changeText('priority_id', e) }}>
-            <option value="1">Low</option>
-            <option value="2">Normal</option>
-            <option value="3">High</option>
-            <option value="4">Urgent</option>
-            <option value="5">Immediate</option>
-          </select>
-          <div className="input-group-append">
-            <button className="btn btn-outline-secondary" type="button" onClick={this.clear}>Clear</button>
-          </div>
-        </div>
+        </form>
         <div className="container">
           <div className="row">
-            <div className="col py-3 border-bottom text-center font-weight-bold">#</div>
-            <div className="col py-3 border-bottom font-weight-bold">Project</div>
-            <div className="col py-3 border-bottom font-weight-bold">Tracker</div>
-            <div className="col py-3 border-bottom font-weight-bold">Status</div>
-            <div className="col py-3 border-bottom font-weight-bold">Priority</div>
-            <div className="col py-3 border-bottom font-weight-bold">Subject</div>
-            <div className="col py-3 border-bottom font-weight-bold">Assignee</div>
-            <div className="col py-3 border-bottom font-weight-bold">Updated</div>
+            <div className="col-md-1 py-3 border-bottom text-center font-weight-bold bg-light">#</div>
+            <div className="col py-3 border-bottom font-weight-bold bg-light">Project</div>
+            <div className="col py-3 border-bottom font-weight-bold bg-light">Tracker</div>
+            <div className="col py-3 border-bottom font-weight-bold bg-light">Status</div>
+            <div className="col py-3 border-bottom font-weight-bold bg-light">Priority</div>
+            <div className="col py-3 border-bottom font-weight-bold bg-light">Subject</div>
+            <div className="col py-3 border-bottom font-weight-bold bg-light">Assignee</div>
+            <div className="col py-3 border-bottom font-weight-bold bg-light">Updated</div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import List from '../components/List';
 import Desc from '../components/Desc';
 import { Route, BrowserRouter } from 'react-router-dom';
