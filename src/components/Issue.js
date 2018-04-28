@@ -8,10 +8,9 @@ class Issue extends Component {
     let result = this.props.issue;
     let assignee = result.assigned_to != null ? result.assigned_to.name : "None";
     let updateDate = new Date(Date.parse(result.updated_on));
-    let updateDateFormat = `${updateDate.getFullYear()}-${updateDate.getMonth()}-${updateDate.getDay()}
-                            ${updateDate.getHours()}:${updateDate.getMinutes()}:${updateDate.getSeconds()}`
+    let updateDateFormat = `${updateDate.getFullYear()}-${updateDate.getMonth()}-${updateDate.getDay()}`
     return (
-      <Link to={`/issue/${result.id}`} className="nav-link text-dark">
+      <Link to={`/issue/${result.id}`} className="list-group-item-action text-dark p-2">
         <div className="row">
           <div className="col-md-1 text-center">{result.id}</div>
           <div className="col-sm">{result.project.name}</div>

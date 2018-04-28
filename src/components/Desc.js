@@ -16,7 +16,7 @@ class Desc extends Component {
 
     if (result === undefined) {
       return (
-        <div className="row pt-3">
+        <div className="row p-2">
           <Link to="/" className="col-sm">
             <div className="btn btn-outline-secondary">
               Back
@@ -33,56 +33,56 @@ class Desc extends Component {
       <div>
         <div className="row py-2">
           <Link to="/" className="col-sm">
-            <div className="btn btn-outline-secondary">
+            <div className="btn btn-outline-dark">
               Back
             </div>
           </Link>
         </div>
-        <div className="jumbotron">
-          <div className="row border-bottom border-white pt-3">
+        <div className="shadow p-3 rounded">
+          <div className="row border-bottom border-secondary p-2">
             <div className="h4 font-weight-bold col-sm">{result.tracker.name}{' #'}{result.id}</div>
           </div>
 
-          <div className="row pt-3">
+          <div className="row p-2 desc-color">
             <div className="h5 col-sm">{result.subject}</div>
           </div>
-          <div className="row pt-3">
+          <div className="row p-2 desc-color">
             <div className="h6 col-sm">Added by <u>{result.author.name}</u> {startDays} day(s) ago. Updated {updateDays} day(s) ago.</div>
           </div>
-          <div className="row pt-3">
+          <div className="row p-2 desc-color">
             <div className="h6 col-sm font-weight-bold">Status:</div>
             <div className="h6 col-sm text-left">{result.status.name}</div>
             <div className="h6 col-sm font-weight-bold">Start Date:</div>
             <div className="h6 col-sm text-left">{result.start_date}</div>
           </div>
-          <div className="row pt-3">
+          <div className="row p-2 desc-color">
             <div className="h6 col-sm font-weight-bold">Priority:</div>
             <div className="h6 col-sm text-left">{result.priority.name}</div>
             <div className="h6 col-sm font-weight-bold">Due Date:</div>
             <div className="h6 col-sm text-left">{result.due_date}</div>
           </div>
-          <div className="row pt-3">
+          <div className="row p-2 desc-color">
             <div className="h6 col-sm font-weight-bold">Assignee:</div>
             <div className="h6 col-sm text-left">{assignee}</div>
             <div className="h6 col-sm font-weight-bold">Done Ratio:</div>
             <div className="h6 col-sm text-left">{result.done_ratio}</div>
           </div>
-          <div className="row pt-3">
+          <div className="row p-2 desc-color">
             <div className="h6 col-sm font-weight-bold">Estimared Time:</div>
             <div className="h6 col-sm">{result.estimated_hours}</div>
             <div className="h6 col-sm font-weight-bold">Total Estimared Time:</div>
             <div className="h6 col-sm text-left">{result.total_estimated_hours}</div>
           </div>
-          <div className="row pt-3 border-bottom border-white">
+          <div className="row p-2 border-bottom border-secondary desc-color">
             <div className="h6 col-sm font-weight-bold">Spent Hours:</div>
             <div className="h6 col-sm">{result.spent_hours}</div>
             <div className="h6 col-sm font-weight-bold">Total Spent Hours:</div>
             <div className="h6 col-sm text-left">{result.total_spent_hours}</div>
           </div>
-          <div className="row pt-3">
+          <div className="row p-2">
             <div className="h6 col-sm font-weight-bold">Description</div>
           </div>
-          <div className="row pt-3">
+          <div className="row p-2">
             <div className="h6 col-sm">{result.description}</div>
           </div>
         </div>

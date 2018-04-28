@@ -77,7 +77,7 @@ class Input extends Component {
             </div>
 
             <div className="form-group col-md-3">
-              <label>Issue Id</label>
+              <label>Issue ID</label>
               <input
                 className="form-control"
                 placeholder="Search"
@@ -102,24 +102,11 @@ class Input extends Component {
             </div>
 
             <div className="btn-group col">
-              {/* <button className="btn btn-outline-dark" type="button" onClick={this.searchByFilter}>Filter</button> */}
               <input className="btn btn-outline-dark" type="submit" value="Clear" />
             </div>
 
           </div>
         </form>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-1 py-3 border-bottom text-center font-weight-bold bg-light">#</div>
-            <div className="col py-3 border-bottom font-weight-bold bg-light">Project</div>
-            <div className="col py-3 border-bottom font-weight-bold bg-light">Tracker</div>
-            <div className="col py-3 border-bottom font-weight-bold bg-light">Status</div>
-            <div className="col py-3 border-bottom font-weight-bold bg-light">Priority</div>
-            <div className="col py-3 border-bottom font-weight-bold bg-light">Subject</div>
-            <div className="col py-3 border-bottom font-weight-bold bg-light">Assignee</div>
-            <div className="col py-3 border-bottom font-weight-bold bg-light">Updated</div>
-          </div>
-        </div>
       </div>
     )
   }

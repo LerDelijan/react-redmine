@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Noto+Sans');
+
 .App {
   text-align: center;
 }
@@ -13,11 +15,14 @@
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+ body {
+   font-family: Roboto, sans-serif !important;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.panel {
+  background-color: #E3F2FD;
+}
+
+.desc-color {
+  background-color: #FAFAFA;
 }
